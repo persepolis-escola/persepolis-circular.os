@@ -13,6 +13,13 @@ import {
   Sparkles,
   TerminalSquare,
   Workflow,
+  FileCheck2,
+  LockKeyhole,
+  BarChart3,
+  BriefcaseBusiness,
+  ChevronDown,
+  Boxes,
+  ScanLine,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -66,6 +73,86 @@ const outcomes = [
   "mais aprendizagem",
   "mais trabalho",
   "mais capacidade territorial",
+];
+
+const operationStages = [
+  {
+    no: "01",
+    title: "Recebimento e inventário",
+    text: "Cada ativo entra no sistema com fotografia, marca, modelo, número de série, origem, estado técnico e identificação individual.",
+    icon: ScanLine,
+  },
+  {
+    no: "02",
+    title: "Triagem e diagnóstico",
+    text: "Os equipamentos são classificados entre reuso imediato, recondicionamento simples, recondicionamento avançado e destinação técnica.",
+    icon: Boxes,
+  },
+  {
+    no: "03",
+    title: "Segurança da informação",
+    text: "A operação prevê controle de acesso, registro de movimentação, sanitização de dados e documentação para governança e LGPD.",
+    icon: LockKeyhole,
+  },
+  {
+    no: "04",
+    title: "Recondicionamento",
+    text: "Hardware, software e componentes são recuperados para prolongar a vida útil e devolver capacidade tecnológica ao ciclo econômico.",
+    icon: CircuitBoard,
+  },
+  {
+    no: "05",
+    title: "Formação e aplicação",
+    text: "A operação se torna ambiente real de aprendizagem, desenvolvimento de competências e inclusão produtiva.",
+    icon: GraduationCap,
+  },
+  {
+    no: "06",
+    title: "Rastreabilidade e impacto",
+    text: "A empresa recebe evidências da jornada dos ativos, indicadores ambientais, sociais e relatório executivo de resultados.",
+    icon: BarChart3,
+  },
+];
+
+const referenceIndicators = [
+  { value: "400", label: "ativos processados em operação-piloto" },
+  { value: "8 t", label: "de equipamentos eletrônicos mobilizados" },
+  { value: "160 t", label: "de CO₂ equivalente estimadas no ciclo" },
+  { value: "20", label: "pessoas formadas em atividades técnicas" },
+  { value: "100", label: "equipamentos destinados para uso social" },
+  { value: "500", label: "pessoas potencialmente alcançadas" },
+];
+
+const deliverables = [
+  "inventário individual dos ativos",
+  "classificação técnica e registro de destino",
+  "cadeia de custódia e evidências operacionais",
+  "indicadores ambientais e sociais",
+  "relatório executivo para ESG e governança",
+  "recomendação de programa recorrente",
+];
+
+const faq = [
+  {
+    q: "A Persepolis é uma empresa de reciclagem?",
+    a: "Não. A Persepolis opera infraestrutura circular. A reciclagem é apenas uma das possibilidades de destino. A prioridade é preservar valor, prolongar a vida útil, recondicionar e reinserir tecnologia em novos ciclos.",
+  },
+  {
+    q: "Quais equipamentos podem entrar no sistema?",
+    a: "Computadores, notebooks, monitores, periféricos e outros ativos de tecnologia da informação podem ser avaliados. O escopo final é definido no diagnóstico.",
+  },
+  {
+    q: "Como a segurança dos dados é tratada?",
+    a: "A jornada inclui registro de entrada, controle de movimentação, procedimentos de sanitização e documentação das etapas. Requisitos específicos de segurança podem ser incorporados ao plano de operação.",
+  },
+  {
+    q: "O que a empresa recebe ao final?",
+    a: "Inventário atualizado, evidências de rastreabilidade, classificação dos ativos, indicadores de impacto e relatório executivo adequado para áreas de TI, patrimônio, sustentabilidade, compliance e ESG.",
+  },
+  {
+    q: "É possível começar com um piloto?",
+    a: "Sim. O piloto é a porta de entrada recomendada. Ele permite testar a operação, medir resultados e definir um programa recorrente com menor risco.",
+  },
 ];
 
 export default function Home() {
@@ -158,6 +245,7 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
             <a href="#sistema" onClick={() => setMenuOpen(false)}>Circular OS</a>
             <a href="#metodo" onClick={() => setMenuOpen(false)}>Método</a>
             <a href="#territorios" onClick={() => setMenuOpen(false)}>Territórios</a>
+            <a href="#impacto" onClick={() => setMenuOpen(false)}>Impacto</a>
             <a className="nav-cta" href="#diagnostico" onClick={() => setMenuOpen(false)}>
               Solicitar diagnóstico
             </a>
@@ -196,6 +284,13 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
               </div>
               <div className="microcopy">
                 INVENTÁRIO · RASTREABILIDADE · RECONDICIONAMENTO · INDICADORES ESG
+              </div>
+
+              <div className="hero-proof">
+                <div><strong>TI</strong><span>gestão de ativos</span></div>
+                <div><strong>ESG</strong><span>evidências de impacto</span></div>
+                <div><strong>LGPD</strong><span>governança e dados</span></div>
+                <div><strong>RH</strong><span>formação e trabalho</span></div>
               </div>
             </div>
 
@@ -299,11 +394,60 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
           </div>
         </section>
 
+        <section className="problem-section">
+          <div className="wrap">
+            <div className="kicker">02 / O DESAFIO</div>
+            <div className="problem-grid">
+              <div>
+                <h2>ATIVOS PARADOS TAMBÉM SÃO RISCO, CUSTO E CAPACIDADE DESPERDIÇADA.</h2>
+              </div>
+              <div className="problem-copy">
+                <p>
+                  Equipamentos substituídos continuam ocupando espaço, exigindo controle patrimonial,
+                  armazenagem, segurança da informação e decisão sobre destino. Sem processo, o passivo
+                  cresce e a empresa perde visibilidade sobre valor, risco e impacto.
+                </p>
+                <p>
+                  Ao mesmo tempo, escolas, organizações e territórios precisam de infraestrutura para
+                  formar pessoas, criar oportunidades e ampliar capacidade produtiva.
+                </p>
+                <p className="problem-highlight">
+                  A Persepolis transforma esse desencontro em uma operação única: tecnologia que sai
+                  do estoque, volta ao ciclo e gera evidências para a empresa.
+                </p>
+              </div>
+            </div>
+
+            <div className="pain-grid">
+              <article>
+                <FileCheck2 size={24} />
+                <h3>Baixa rastreabilidade</h3>
+                <p>Informações dispersas sobre localização, estado, destino e valor residual.</p>
+              </article>
+              <article>
+                <LockKeyhole size={24} />
+                <h3>Risco de dados</h3>
+                <p>Ativos sem fluxo documentado aumentam a exposição operacional e reputacional.</p>
+              </article>
+              <article>
+                <Boxes size={24} />
+                <h3>Estoque improdutivo</h3>
+                <p>Equipamentos ocupam espaço e consomem recursos sem gerar nova capacidade.</p>
+              </article>
+              <article>
+                <BarChart3 size={24} />
+                <h3>ESG sem evidência</h3>
+                <p>Ações pontuais não produzem indicadores, rastreabilidade ou aprendizado institucional.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section id="sistema" className="system-section">
           <div className="wrap">
             <div className="section-heading">
               <div>
-                <div className="kicker">02 / PERSEPOLIS CIRCULAR OS™</div>
+                <div className="kicker">03 / PERSEPOLIS CIRCULAR OS™</div>
                 <h2>UM SISTEMA OPERACIONAL PARA NOVOS CICLOS.</h2>
               </div>
               <p>
@@ -334,11 +478,42 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
           </div>
         </section>
 
+        <section className="operation-section">
+          <div className="wrap">
+            <div className="section-heading">
+              <div>
+                <div className="kicker">04 / COMO A OPERAÇÃO FUNCIONA</div>
+                <h2>DO ATIVO PARADO À EVIDÊNCIA DE IMPACTO.</h2>
+              </div>
+              <p>
+                A Persepolis estrutura a jornada completa: entrada, controle, decisão técnica,
+                recondicionamento, aplicação territorial e mensuração.
+              </p>
+            </div>
+
+            <div className="operation-grid">
+              {operationStages.map((stage) => {
+                const Icon = stage.icon;
+                return (
+                  <article className="operation-card" key={stage.no}>
+                    <div className="operation-head">
+                      <span>{stage.no}</span>
+                      <Icon size={25} strokeWidth={1.5} />
+                    </div>
+                    <h3>{stage.title}</h3>
+                    <p>{stage.text}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section id="metodo" className="method-section">
           <div className="wrap">
             <div className="section-heading">
               <div>
-                <div className="kicker">03 / CIRCULAR INNOVATION LAB™</div>
+                <div className="kicker">05 / CIRCULAR INNOVATION LAB™</div>
                 <h2>DA ESTRATÉGIA À OPERAÇÃO.</h2>
               </div>
               <p>
@@ -362,7 +537,7 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
         <section id="territorios" className="territories">
           <div className="wrap territory-grid">
             <div>
-              <div className="kicker">04 / TERRITÓRIOS DIGITAIS™</div>
+              <div className="kicker">06 / TERRITÓRIOS DIGITAIS™</div>
               <h2>A INFRAESTRUTURA ENCONTRA O TERRITÓRIO.</h2>
               <p className="intro">
                 Empresas, universidades, comunidades e governos compartilham
@@ -396,11 +571,83 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
           </div>
         </section>
 
+        <section id="impacto" className="impact-section">
+          <div className="wrap">
+            <div className="section-heading">
+              <div>
+                <div className="kicker">07 / DADOS DE REFERÊNCIA</div>
+                <h2>IMPACTO QUE PODE SER RASTREADO, COMPARADO E COMUNICADO.</h2>
+              </div>
+              <p>
+                Indicadores de referência da operação-piloto interna da Persepolis. Os resultados
+                de cada contrato dependem do volume, do estado dos ativos, do território e do escopo.
+              </p>
+            </div>
+
+            <div className="indicator-grid">
+              {referenceIndicators.map((item) => (
+                <article className="indicator-card" key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </article>
+              ))}
+            </div>
+
+            <div className="impact-explain">
+              <article>
+                <span className="impact-code">AMBIENTAL</span>
+                <h3>Vida útil prolongada</h3>
+                <p>
+                  Reuso e recondicionamento preservam materiais, reduzem descarte prematuro e
+                  diminuem a necessidade de substituição imediata.
+                </p>
+              </article>
+              <article>
+                <span className="impact-code">SOCIAL</span>
+                <h3>Aprendizagem aplicada</h3>
+                <p>
+                  A própria operação vira campo de formação técnica, desenvolvimento de competências
+                  e aproximação com oportunidades de trabalho.
+                </p>
+              </article>
+              <article>
+                <span className="impact-code">GOVERNANÇA</span>
+                <h3>Evidência para decisão</h3>
+                <p>
+                  Inventário, cadeia de custódia e relatórios permitem que a empresa acompanhe o
+                  destino dos ativos e incorpore resultados à sua estratégia ESG.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section className="outcomes">
           <div className="wrap">
-            <div className="kicker">05 / RESULTADO DO SISTEMA</div>
+            <div className="kicker">08 / RESULTADO DO SISTEMA</div>
             <div className="outcome-list">
               {outcomes.map((item, index) => (
+                <div key={item}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{item}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="deliverables-section">
+          <div className="wrap deliverables-grid">
+            <div>
+              <div className="kicker">09 / ENTREGAS PARA A EMPRESA</div>
+              <h2>NÃO É UMA AÇÃO ISOLADA. É UMA OPERAÇÃO DOCUMENTADA.</h2>
+              <p className="intro">
+                A empresa recebe dados, evidências e recomendações para transformar uma demanda
+                pontual em política de circularidade tecnológica.
+              </p>
+            </div>
+            <div className="deliverables-list">
+              {deliverables.map((item, index) => (
                 <div key={item}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <strong>{item}</strong>
@@ -413,7 +660,7 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
         <section className="company">
           <div className="wrap company-grid">
             <div>
-              <div className="kicker">06 / PARA EMPRESAS</div>
+              <div className="kicker">10 / PARA EMPRESAS</div>
               <h2>SUA EMPRESA JÁ POSSUI PARTE DA INFRAESTRUTURA.</h2>
               <p className="intro">
                 Nós transformamos patrimônio tecnológico parado em valor
@@ -421,7 +668,15 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
               </p>
             </div>
 
-            <div className="benefit-panel">
+            <div className="company-side">
+              <div className="audience-grid">
+                <article><strong>TI</strong><span>ciclo de vida, inventário e segurança</span></article>
+                <article><strong>ESG</strong><span>indicadores e impacto verificável</span></article>
+                <article><strong>Patrimônio</strong><span>controle, destino e evidências</span></article>
+                <article><strong>RH</strong><span>formação, voluntariado e trabalho</span></article>
+              </div>
+
+              <div className="benefit-panel">
               <div className="benefit-head">
                 <TerminalSquare size={24} />
                 <span>BUSINESS CASE</span>
@@ -440,6 +695,27 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
                   </div>
                 ))}
               </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="faq-section">
+          <div className="wrap faq-grid">
+            <div>
+              <div className="kicker">11 / PERGUNTAS FREQUENTES</div>
+              <h2>O QUE SUA ORGANIZAÇÃO PRECISA SABER.</h2>
+            </div>
+            <div className="faq-list">
+              {faq.map((item) => (
+                <details key={item.q}>
+                  <summary>
+                    <span>{item.q}</span>
+                    <ChevronDown size={19} />
+                  </summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>
@@ -447,7 +723,7 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
         <section id="diagnostico" className="diagnosis">
           <div className="wrap form-grid">
             <div className="diagnosis-copy">
-              <div className="kicker">SYSTEM READY</div>
+              <div className="kicker">12 / SYSTEM READY</div>
               <h2>SOLICITE UM DIAGNÓSTICO CIRCULAR.</h2>
               <p className="intro">
                 Preencha os dados. Ao enviar, seu aplicativo de e-mail abrirá

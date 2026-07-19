@@ -1,0 +1,9 @@
+<svg width="360" height="180" viewBox="0 0 360 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(132 8)">
+    <circle cx="48" cy="24" r="18" fill="#ED007A"/>
+    <path d="M32 43H64L80 71H16L32 43Z" fill="#16A6A3"/>
+    <path d="M16 75H80L96 105H0L16 75Z" fill="#F08A00"/>
+  </g>
+  <text x="180" y="144" text-anchor="middle" fill="#F7F7F2" font-family="Arial, sans-serif" font-size="31" font-weight="700" letter-spacing="5">PERSEPOLIS</text>
+  <text x="180" y="169" text-anchor="middle" fill="#ED007A" font-family="Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="6">CIRCULAR OS</text>
+</svg>

@@ -10,8 +10,11 @@ import {
   Map,
   Recycle,
   ShieldCheck,
+  Sparkles,
+  TerminalSquare,
+  Workflow,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const EMAIL = "persepolisescolalivre@gmail.com";
 
@@ -57,8 +60,17 @@ const method = [
   "Replicar",
 ];
 
+const outcomes = [
+  "menos passivo tecnológico",
+  "mais rastreabilidade",
+  "mais aprendizagem",
+  "mais trabalho",
+  "mais capacidade territorial",
+];
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [booting, setBooting] = useState(true);
   const [form, setForm] = useState({
     name: "",
     company: "",
@@ -68,6 +80,11 @@ export default function Home() {
     assets: "",
     message: "",
   });
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setBooting(false), 1500);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const mailto = useMemo(() => {
     const subject = encodeURIComponent(
@@ -99,6 +116,24 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
 
   return (
     <>
+      <div className={booting ? "boot-screen visible" : "boot-screen"}>
+        <div className="boot-inner">
+          <div className="boot-logo">
+            <span className="brand-symbol large">
+              <span className="brand-circle" />
+              <span className="brand-middle" />
+              <span className="brand-base" />
+            </span>
+          </div>
+          <div className="boot-title">PERSEPOLIS CIRCULAR OS™</div>
+          <div className="boot-track"><span /></div>
+          <div className="boot-meta">
+            <span>INICIALIZANDO NOVOS CICLOS</span>
+            <span>V2.0</span>
+          </div>
+        </div>
+      </div>
+
       <header className="topbar">
         <div className="wrap nav">
           <a className="brand" href="#inicio" aria-label="Persepolis">
@@ -115,7 +150,7 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
             aria-label="Abrir menu"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            MENU
+            {menuOpen ? "FECHAR" : "MENU"}
           </button>
 
           <nav className={menuOpen ? "links open" : "links"}>
@@ -133,10 +168,19 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
       <main>
         <section className="hero" id="inicio">
           <div className="grid-overlay" />
+          <div className="hero-glow one" />
+          <div className="hero-glow two" />
+
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <div className="system-label">PERSEPOLIS CIRCULAR OS™ / SYSTEM ONLINE</div>
-              <h1>O FUTURO É UMA INFRAESTRUTURA.</h1>
+              <div className="system-label">
+                <span className="pulse-dot" />
+                PERSEPOLIS CIRCULAR OS™ / SYSTEM ONLINE
+              </div>
+              <h1>
+                O FUTURO É UMA
+                <span> INFRAESTRUTURA.</span>
+              </h1>
               <p>
                 Transformamos ativos tecnológicos corporativos em aprendizagem,
                 trabalho e desenvolvimento territorial por meio de um sistema
@@ -155,93 +199,134 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
               </div>
             </div>
 
-            <aside className="terminal">
-              <div className="terminal-head">
-                <span>PERSEPOLIS_OS</span>
-                <span className="online"><i /> ONLINE</span>
-              </div>
-              <div className="terminal-row">
-                <small>INFRAESTRUTURA</small>
-                <strong>CIRCULAR</strong>
-              </div>
-              <div className="terminal-row">
-                <small>CAPACIDADE</small>
-                <strong>DETECTADA</strong>
-              </div>
-              <div className="terminal-row">
-                <small>NOVO CICLO</small>
-                <strong>INSTALADO</strong>
-              </div>
-              <div className="terminal-footer">
-                <span>STATUS: READY</span>
-                <span>V1.0</span>
+            <aside className="system-visual">
+              <div className="terminal">
+                <div className="terminal-head">
+                  <span>PERSEPOLIS_OS</span>
+                  <span className="online"><i /> ONLINE</span>
+                </div>
+
+                <div className="architecture">
+                  <div className="arch-node top">
+                    <small>ENTRADA</small>
+                    <strong>ATIVOS</strong>
+                  </div>
+                  <div className="arch-line vertical" />
+                  <div className="arch-core">
+                    <span className="core-ring one" />
+                    <span className="core-ring two" />
+                    <span className="core-dot" />
+                    <small>CIRCULAR OS</small>
+                  </div>
+                  <div className="arch-line vertical bottom" />
+                  <div className="arch-results">
+                    <div><small>SAÍDA_01</small><strong>APRENDIZAGEM</strong></div>
+                    <div><small>SAÍDA_02</small><strong>TRABALHO</strong></div>
+                    <div><small>SAÍDA_03</small><strong>TERRITÓRIO</strong></div>
+                  </div>
+                </div>
+
+                <div className="terminal-footer">
+                  <span>STATUS: READY</span>
+                  <span>CAPACITY DETECTED</span>
+                </div>
               </div>
             </aside>
           </div>
+
+          <div className="hero-ticker" aria-hidden="true">
+            <div>
+              <span>DIREITO AO FUTURO</span>
+              <i>•</i>
+              <span>INFRAESTRUTURA CIRCULAR</span>
+              <i>•</i>
+              <span>CAPACIDADE INSTALADA</span>
+              <i>•</i>
+              <span>NOVOS CICLOS</span>
+              <i>•</i>
+            </div>
+          </div>
+
           <a href="#tese" className="scroll-cue" aria-label="Rolar">
             <ArrowDown size={18} />
           </a>
         </section>
 
-        <section id="tese">
-          <div className="wrap">
-            <div className="kicker">01 / DIREITO AO FUTURO</div>
-            <h2>O problema não é falta de tecnologia.</h2>
-            <p className="intro">
-              É desperdício de infraestrutura. Empresas acumulam capacidade
-              tecnológica. Territórios seguem sem as condições materiais para
-              aprender, trabalhar e criar. A Persepolis conecta essas duas
-              realidades.
-            </p>
+        <section id="tese" className="manifesto">
+          <div className="wrap manifesto-grid">
+            <div className="section-sticky">
+              <div className="kicker">01 / DIREITO AO FUTURO</div>
+              <h2>O problema não é falta de tecnologia.</h2>
+            </div>
 
-            <div className="comparison">
-              <article className="comparison-card muted">
-                <span className="card-code">SISTEMA ANTIGO</span>
-                <h3>Infraestrutura linear</h3>
-                <ol>
-                  <li>Comprar</li>
-                  <li>Usar</li>
-                  <li>Substituir</li>
-                  <li>Descartar</li>
-                </ol>
-              </article>
+            <div className="manifesto-copy">
+              <p className="statement">
+                É desperdício de infraestrutura.
+              </p>
+              <p>
+                Empresas acumulam capacidade tecnológica. Territórios seguem sem
+                as condições materiais para aprender, trabalhar e criar.
+              </p>
+              <p>
+                A Persepolis conecta essas duas realidades e transforma o que
+                estava parado em uma nova infraestrutura de futuro.
+              </p>
 
-              <article className="comparison-card active">
-                <span className="card-code">NOVO SISTEMA</span>
-                <h3>Infraestrutura circular</h3>
-                <ol>
-                  <li>Inventariar</li>
-                  <li>Rastrear</li>
-                  <li>Recondicionar</li>
-                  <li>Reinserir e medir</li>
-                </ol>
-              </article>
+              <div className="comparison">
+                <article className="comparison-card muted">
+                  <span className="card-code">SISTEMA ANTIGO</span>
+                  <h3>Infraestrutura linear</h3>
+                  <ol>
+                    <li>Comprar</li>
+                    <li>Usar</li>
+                    <li>Substituir</li>
+                    <li>Descartar</li>
+                  </ol>
+                </article>
+
+                <article className="comparison-card active">
+                  <span className="card-code">NOVO SISTEMA</span>
+                  <h3>Infraestrutura circular</h3>
+                  <ol>
+                    <li>Inventariar</li>
+                    <li>Rastrear</li>
+                    <li>Recondicionar</li>
+                    <li>Reinserir e medir</li>
+                  </ol>
+                </article>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="sistema">
+        <section id="sistema" className="system-section">
           <div className="wrap">
-            <div className="kicker">02 / PERSEPOLIS CIRCULAR OS™</div>
-            <h2>UM SISTEMA OPERACIONAL PARA NOVOS CICLOS.</h2>
-            <p className="intro">
-              Ativos, processos, dados, pessoas e territórios conectados em uma
-              única arquitetura de operação.
-            </p>
+            <div className="section-heading">
+              <div>
+                <div className="kicker">02 / PERSEPOLIS CIRCULAR OS™</div>
+                <h2>UM SISTEMA OPERACIONAL PARA NOVOS CICLOS.</h2>
+              </div>
+              <p>
+                Ativos, processos, dados, pessoas e territórios conectados em
+                uma única arquitetura de operação.
+              </p>
+            </div>
 
             <div className="modules">
-              {modules.map((module) => {
+              {modules.map((module, index) => {
                 const Icon = module.icon;
                 return (
                   <article className="module" key={module.code}>
+                    <div className="module-number">{String(index + 1).padStart(2, "0")}</div>
                     <div className="module-top">
                       <span>{module.code}</span>
-                      <Icon size={25} strokeWidth={1.5} />
+                      <Icon size={26} strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3>{module.title}</h3>
                       <p>{module.text}</p>
                     </div>
+                    <div className="module-status">ONLINE</div>
                   </article>
                 );
               })}
@@ -249,19 +334,25 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
           </div>
         </section>
 
-        <section id="metodo">
+        <section id="metodo" className="method-section">
           <div className="wrap">
-            <div className="kicker">03 / CIRCULAR INNOVATION LAB™</div>
-            <h2>DA ESTRATÉGIA À OPERAÇÃO.</h2>
-            <p className="intro">
-              Uma metodologia replicável que converte capacidade instalada em
-              infraestrutura territorial mensurável.
-            </p>
-            <div className="method">
+            <div className="section-heading">
+              <div>
+                <div className="kicker">03 / CIRCULAR INNOVATION LAB™</div>
+                <h2>DA ESTRATÉGIA À OPERAÇÃO.</h2>
+              </div>
+              <p>
+                Uma metodologia replicável que converte capacidade instalada em
+                infraestrutura territorial mensurável.
+              </p>
+            </div>
+
+            <div className="method-line">
               {method.map((item, index) => (
                 <div className="method-step" key={item}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <strong>{item}</strong>
+                  {index < method.length - 1 && <ArrowRight size={16} className="method-arrow" />}
                 </div>
               ))}
             </div>
@@ -283,11 +374,38 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
               </a>
             </div>
 
-            <div className="proof">
-              <div><strong>100+</strong><span>ativos por piloto</span></div>
-              <div><strong>5</strong><span>semanas de implementação</span></div>
-              <div><strong>30+</strong><span>participantes</span></div>
-              <div><strong>1</strong><span>relatório ESG executivo</span></div>
+            <div className="territory-map">
+              <div className="map-grid" />
+              <span className="map-node node-a" />
+              <span className="map-node node-b" />
+              <span className="map-node node-c" />
+              <span className="map-path path-a" />
+              <span className="map-path path-b" />
+              <div className="map-center">
+                <Map size={28} />
+                <strong>TERRITÓRIO ATIVO</strong>
+                <small>INFRAESTRUTURA EM REDE</small>
+              </div>
+              <div className="proof">
+                <div><strong>100+</strong><span>ativos por piloto</span></div>
+                <div><strong>5</strong><span>semanas de implementação</span></div>
+                <div><strong>30+</strong><span>participantes</span></div>
+                <div><strong>1</strong><span>relatório ESG executivo</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="outcomes">
+          <div className="wrap">
+            <div className="kicker">05 / RESULTADO DO SISTEMA</div>
+            <div className="outcome-list">
+              {outcomes.map((item, index) => (
+                <div key={item}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{item}</strong>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -295,29 +413,40 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
         <section className="company">
           <div className="wrap company-grid">
             <div>
-              <div className="kicker">05 / PARA EMPRESAS</div>
+              <div className="kicker">06 / PARA EMPRESAS</div>
               <h2>SUA EMPRESA JÁ POSSUI PARTE DA INFRAESTRUTURA.</h2>
+              <p className="intro">
+                Nós transformamos patrimônio tecnológico parado em valor
+                econômico, social, ambiental e territorial mensurável.
+              </p>
             </div>
-            <div className="benefits">
-              {[
-                "Gestão do ciclo de vida dos ativos",
-                "Inventário e rastreabilidade",
-                "Segurança e governança",
-                "Indicadores ESG verificáveis",
-                "Impacto territorial mensurável",
-              ].map((item) => (
-                <div key={item}>
-                  <CheckCircle2 size={20} />
-                  <span>{item}</span>
-                </div>
-              ))}
+
+            <div className="benefit-panel">
+              <div className="benefit-head">
+                <TerminalSquare size={24} />
+                <span>BUSINESS CASE</span>
+              </div>
+              <div className="benefits">
+                {[
+                  "Gestão do ciclo de vida dos ativos",
+                  "Inventário e rastreabilidade",
+                  "Segurança e governança",
+                  "Indicadores ESG verificáveis",
+                  "Impacto territorial mensurável",
+                ].map((item) => (
+                  <div key={item}>
+                    <CheckCircle2 size={20} />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         <section id="diagnostico" className="diagnosis">
           <div className="wrap form-grid">
-            <div>
+            <div className="diagnosis-copy">
               <div className="kicker">SYSTEM READY</div>
               <h2>SOLICITE UM DIAGNÓSTICO CIRCULAR.</h2>
               <p className="intro">
@@ -328,9 +457,20 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
                 <ShieldCheck size={22} />
                 <span>{EMAIL}</span>
               </div>
+
+              <div className="diagnosis-points">
+                <div><Workflow size={18} /><span>mapeamento da operação atual</span></div>
+                <div><Sparkles size={18} /><span>identificação de oportunidades</span></div>
+                <div><CircuitBoard size={18} /><span>recomendação de piloto</span></div>
+              </div>
             </div>
 
             <form className="form" action={mailto}>
+              <div className="form-head">
+                <span>DIAGNOSTIC_REQUEST.EXE</span>
+                <span>READY</span>
+              </div>
+
               <label>
                 Nome
                 <input
@@ -399,17 +539,25 @@ Gostaria de receber mais informações sobre o Persepolis Circular OS™.`
 
       <footer>
         <div className="wrap footer">
-          <div>
-            <strong>PERSEPOLIS</strong>
-            <p>Direito ao Futuro. Infraestrutura circular em operação.</p>
+          <div className="footer-brand">
+            <span className="brand-symbol">
+              <span className="brand-circle" />
+              <span className="brand-middle" />
+              <span className="brand-base" />
+            </span>
+            <div>
+              <strong>PERSEPOLIS</strong>
+              <p>Direito ao Futuro. Infraestrutura circular em operação.</p>
+            </div>
           </div>
           <div className="footer-links">
             <a href={`mailto:${EMAIL}`}>E-mail</a>
-            <a href="https://instagram.com/persepolisescola" target="_blank">Instagram</a>
-            <a href="https://persepolisescola.com.br" target="_blank">Site institucional</a>
+            <a href="https://instagram.com/persepolisescola" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://persepolisescola.com.br" target="_blank" rel="noreferrer">Site institucional</a>
           </div>
         </div>
       </footer>
     </>
   );
 }
+

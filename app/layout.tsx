@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Persepolis Circular OS™ | Direito ao Futuro",
+  title: "Persepolis Circular OS™ | Infraestrutura Circular e ESG",
   description:
-    "Infraestrutura circular para transformar ativos tecnológicos em aprendizagem, trabalho e desenvolvimento territorial.",
+    "Gestão de ativos tecnológicos, rastreabilidade, recondicionamento, aprendizagem e indicadores ESG para empresas e territórios.",
   keywords: [
     "infraestrutura circular",
     "economia circular",
